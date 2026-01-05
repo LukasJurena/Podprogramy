@@ -10,22 +10,27 @@ namespace Podprogramy
     {
         static void Main(string[] args)
         {
+            //pass by value - předávání hodnotou
             VypisTextu("Ahoj, tady vypisuji text přes proceduru.");
 
+            //pass by value - předávání hodnotou
             int a = 5;
             int b = 10;
             int soucet = SectiCisla(a, b);
             Console.WriteLine($"Součet čísel {a} a {b} je {soucet}");
 
-            int vek = 20;
-            if (JePlnolety(vek))
+            //pass by reference - předávání odkazem
+            int vek = 16;
+            if (JePlnolety(ref vek))
             {
-                Console.WriteLine($"Osoba, která má {vek} je plnoletá.");
+                Console.WriteLine($"Osoba je plnoletá. Aktuální věk: {vek}");
             }
             else
             {
-                Console.WriteLine($"Osoba, která má {vek} let není plnoletá.");
+                Console.WriteLine($"Osoba není plnoletá. Aktuální věk: {vek}");
             }
+
+            Console.ReadLine();
             Console.ReadLine();
         }
         //procedura - nevrací hodnotu
@@ -39,15 +44,17 @@ namespace Podprogramy
             return a + b;
         }
         //funkce - vrací hodnotu
-        static bool JePlnolety(int vek)
+        static bool JePlnolety(ref int vek)
         {
-            if (vek >= 18)
+            //pokud není plnoletý, nastaví věk na 18
+            if (vek < 18)
             {
+                vek = 18;
                 return true;
             }
             else
             {
-                return false;
+                return true;
             }
         }
     }

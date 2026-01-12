@@ -46,16 +46,11 @@ namespace Podprogramy
         //funkce - vrací hodnotu
         static bool JePlnolety(ref int vek)
         {
-            //pokud není plnoletý, nastaví věk na 18
             if (vek < 18)
             {
-                vek = 18;
-                return true;
+                return false;
             }
-            else
-            {
-                return true;
-            }
+            return true;
         }
     }
 }
